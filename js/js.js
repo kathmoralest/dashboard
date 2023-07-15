@@ -5,7 +5,6 @@ let load = (data) => {
     timeZoneHTML.textContent = timeZone;
 
     let temperature = data['hourly']['temperature_2m'][0]
-    console.log(temperature);
     let temperatureHTML = document.getElementById("temperature")
     temperatureHTML.textContent = temperature + " °C";
 
