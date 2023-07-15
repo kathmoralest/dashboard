@@ -22,17 +22,17 @@ let load = (data) => {
 }
 
 let plot1 = (data) => {
-
+    
     const ctx = document.getElementById('myChart1');
 
     const dataset = {
-        labels: data.hourly.time,
+        labels: data.hourly.time, /* ETIQUETA DE DATOS */
         datasets: [{
-            label: 'Temperatura semanal',
-            data: data.hourly.temperature_2m,
-            fill: false,
-            borderColor: 'rgb(75, 192, 192)',
-            tension: 0.1
+            label: 'Temperatura semanal', /* ETIQUETA DEL GRÁFICO */
+            data: data.hourly.temperature_2m, /* ARREGLO DE DATOS */
+            fill: true,
+            borderColor: '#011f4b',
+            tension: 1
         }]
     };
 
@@ -54,22 +54,22 @@ let plot2 = (data) => {
             label: 'Índice UV semanal',
             data: data.daily.uv_index_max,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 205, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(201, 203, 207, 0.2)'
+                '#10284B',
+                '#005b96',
+                '#6497b1',
+                '#b3cde0',
+                '#CDE9FD',
+                '#79D3FF',
+                '#D0EFFF'
             ],
             borderColor: [
-                'rgb(255, 99, 132)',
-                'rgb(255, 159, 64)',
-                'rgb(255, 205, 86)',
-                'rgb(75, 192, 192)',
-                'rgb(54, 162, 235)',
-                'rgb(153, 102, 255)',
-                'rgb(201, 203, 207)'
+                '#011f4b',
+                '#03396c',
+                '#005b96',
+                '#6497b1',
+                '#b3cde0',
+                '#2a9df4',
+                '#d0efff'
             ],
             borderWidth: 1
         }]
@@ -100,11 +100,11 @@ let loadInocar = () => {
     fetch(URL)
         .then(response => response.text())
         .then(data => {
-
+            load(data)
             const parser = new DOMParser();
             const xml = parser.parseFromString(data, "text/html");
             
-            console.log(data);
+            // console.log(data);
 
             let contenedorMareas = xml.getElementsByClassName('container-fluid')[0];
             let contenedorHTML = document.getElementById('table-container');

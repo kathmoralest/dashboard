@@ -90,6 +90,29 @@
     scroll-behavior: smooth;
   }
 }
+canvas {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+canvas * {
+  aspect-ratio: auto 836 / 333;
+}
+
+.chartjs-render-monitor {
+  animation: chartjs-render-animation 1ms;
+}
+
+@keyframes chartjs-render-animation {
+  0% {
+    opacity: .99;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+
 
 body {
   margin: 0;
